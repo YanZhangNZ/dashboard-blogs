@@ -9,9 +9,9 @@ class App extends Component {
       <BrowserRouter>
        <div>
          <Navbar />  
-         <Switch>
+         {/* <Switch> */}
            <Route path='/' component={Dashboard} />
-         </Switch>
+         {/* </Switch> */}
        </div>
       </BrowserRouter>
     );
