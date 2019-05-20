@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <div>
-      <h3>dashboard</h3>
-    </div>
-  );
+
+
+class App extends Component {
+  render(){
+    return (
+      <BrowserRouter>
+       <div>
+         <h1>Dashboard</h1>
+       </div>
+      </BrowserRouter>
+    );
+  }
+  
 }
 
 export default App;
