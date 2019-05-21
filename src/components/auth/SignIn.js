@@ -3,13 +3,21 @@ import React, { Component } from 'react'
 
 export default class SignIn extends Component {
     state = {
+        email:'',
+        password:'',
+        // firstName:'',
+        // lastName:''
+    }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('submit sign in',this.state);
     }
-    handleSubmit = () => {
-        console.log('submit:')
-    }
-    handleChange = () => {
-        console.log('input:')
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
     }
     render(){
         return(
