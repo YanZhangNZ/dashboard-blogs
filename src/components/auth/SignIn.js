@@ -5,8 +5,6 @@ export default class SignIn extends Component {
     state = {
         email:'',
         password:'',
-        // firstName:'',
-        // lastName:''
     }
 
     handleSubmit = (e) => {
