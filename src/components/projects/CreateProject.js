@@ -19,6 +19,7 @@ class CreateProject extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         //when submitting, we execute this function to dispatch the action to create new project.
+        debugger;
         this.props.createProject(this.state);
     }
 

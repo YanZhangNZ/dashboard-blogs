@@ -1,9 +1,7 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
+import * as firebase from 'firebase'
 
 //initialize firebase
-var config = {
+const config = {
     apiKey: "AIzaSyC4aIIzSIKXO-MxHMihJuOeeqSnKkmElXI",
     authDomain: "dashboard-27d73.firebaseapp.com",
     databaseURL: "https://dashboard-27d73.firebaseio.com",
@@ -13,8 +11,11 @@ var config = {
 };
 
 firebase.initializeApp(config);
-firebase.firestore().settings({
-    timestampsInSnapshots:true
-});
 
-export default firebase;
+const db = firebase.firestore();
+console.log('firebae db:',db);
+
+// const databaseRef = firebase.database().ref();
+// console.log('db ref:',databaseRef);
+
+export default db;
