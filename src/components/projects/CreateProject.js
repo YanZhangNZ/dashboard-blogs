@@ -1,23 +1,29 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import createProject from '../../store/actions/projectActions'
 
 
-export default class CreateProject extends Component {
+
+class CreateProject extends Component {
     state = {
         title:'',
         content:'',
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('create prject:',this.state);
-    }
+    } 
 
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         })
     }
+    
+    handleSubmit = (e) => {
+        e.preventDefault();
+        //when submitting, we execute this function to dispatch the action to create new project.
+        this.props.createProject(this.state);
+    }
+
     render(){
+        console.log('after map dispatch to props:',this.props);
         return(
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
@@ -39,3 +45,13 @@ export default class CreateProject extends Component {
     }
 
 }
+//whatever we cant to add to props, we add to this object.
+//so when props.createProject, we execute the function to dispatch an action createProject
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject:(project) => dispatch(createProject(project))
+    }
+}
+
+//we dont have mapStateToProps here so null
+export default connect(null,mapDispatchToProps)(CreateProject)
