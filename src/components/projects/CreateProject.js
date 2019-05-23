@@ -1,58 +1,55 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import createProject from '../../store/actions/projectActions'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { createProject } from '../../store/actions/projectActions';
 
-
-
-class CreateProject extends Component {
-    state = {
-        title:'',
-        content:'',
-    } 
-
+class CreateProject extends Component { 
+    constructor(){
+        super();
+        this.state = {
+            title:'',
+            content:'',
+        }
+    }
     handleChange = (e) => {
         this.setState({
-            [e.target.id]: e.target.value
+            [e.target.id]:e.target.value
         })
     }
-    
     handleSubmit = (e) => {
         e.preventDefault();
-        //when submitting, we execute this function to dispatch the action to create new project.
+        // console.log(this.state)
         debugger;
-        this.props.createProject(this.state);
+        this.props.createProject(this.state)
     }
+  
 
     render(){
-        console.log('after map dispatch to props:',this.props);
         return(
-            <div className="container">
+             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">create project</h5>
+                    <h5 className="grey-text text-darken-3">Create New Project</h5>
                     <div className="input-field">
-                        <label htmlform='title'>title</label>
-                        <input type="text" id="title" onChange={this.handleChange} />
+                        <label htmlFor="title">Title</label>
+                        <input type="text" id="title" onChange={this.handleChange}></input>
                     </div>
                     <div className="input-field">
-                        <label htmlform='content'>content</label>
-                        <textarea id="content" className="materialize-textarea" onChange={this.handleChange} />
+                        <label htmlFor="content">Content</label>
+                        <textarea id="content" cols="30" rows="5" className="materialize-textarea" onChange={this.handleChange}></textarea>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Create</button>
                     </div>
                 </form>
-            </div>
+             </div>
         )
     }
-
 }
-//whatever we cant to add to props, we add to this object.
-//so when props.createProject, we execute the function to dispatch an action createProject
+
 const mapDispatchToProps = (dispatch) => {
+    debugger;
     return {
-        createProject:(project) => dispatch(createProject(project))
+        createProject: (project)=>dispatch(createProject(project))
     }
 }
 
-//we dont have mapStateToProps here so null
-export default connect(null,mapDispatchToProps)(CreateProject)
+export default connect(null,mapDispatchToProps)(CreateProject);
