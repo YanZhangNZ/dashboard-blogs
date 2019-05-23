@@ -2,7 +2,6 @@
 
 
 import React from 'react';
-import ProjectDetails from './ProjectDetails';
 
 const ProjectSummary = ({project}) => {
     return(
@@ -13,7 +12,7 @@ const ProjectSummary = ({project}) => {
                 </span>
                 <p>Posted by Yan</p>
                 <p className="grey-text">16 January, 3pm</p>
-                <ProjectDetails />
+                <p className="grey-text">{project.content}</p>
             </div>
         </div>
     )
