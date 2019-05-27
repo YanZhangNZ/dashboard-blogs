@@ -18,3 +18,17 @@ export const signIn = (credentials) => {
         })
     }
 }
+
+
+export const signOut = () => {
+    debugger;
+    return (dispatch,getState,{getFirebase})=> {
+        const firebase = getFirebase();
+        //methord from firebase authentication
+        firebase.auth().signOut().then(()=>{
+            dispatch({
+                type:'SIGNOUT_SUCCESS'
+            })
+        })
+    }
+}
