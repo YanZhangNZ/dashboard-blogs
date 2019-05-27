@@ -8,7 +8,6 @@ const initState = {
 
 const projectReducer = (state = initState, action) => {
    //reducer is to return the new state
-   debugger;
     switch(action.type){
         
         case 'CREATE_PROJECT':
