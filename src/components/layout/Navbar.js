@@ -4,6 +4,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+import { connect } from 'react-redux'
+
 // these two signin and signout components will show under some logic authentication
 const Navbar = () => {
     return(
@@ -18,4 +20,11 @@ const Navbar = () => {
 
     )
 }
-export default Navbar;
+
+const mapStateToProps = (state) => {
+    console.log('get state for auth:',state)
+    return {
+
+    }
+}
+export default connect(mapStateToProps)(Navbar);
