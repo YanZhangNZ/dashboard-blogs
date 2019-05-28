@@ -7,14 +7,15 @@ import SignedOutLinks from './SignedOutLinks';
 import { connect } from 'react-redux'
 
 // these two signin and signout components will show under some logic authentication
-const Navbar = () => {
+const Navbar = (props) => {
+    // console.log('props in navbar:',props);
+    const { auth } = props;
+    const links = auth.uid?<SignedInLinks />:<SignedOutLinks />
     return(
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
                 <Link to="/" className="brand-logo">Dashboard</Link>
-              
-                <SignedInLinks />
-                <SignedOutLinks />
+                { links }
             </div>
         </nav>
 
@@ -24,7 +25,7 @@ const Navbar = () => {
 const mapStateToProps = (state) => {
     console.log('get state for auth:',state)
     return {
-
+        auth:state.firebase.auth
     }
 }
 export default connect(mapStateToProps)(Navbar);

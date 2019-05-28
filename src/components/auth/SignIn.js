@@ -58,7 +58,9 @@ const mapStateToProps = (state)=>{
         authError:state.auth.authError
     }
 }
+
 const mapDispatchToProps = (dispatch)=>{
+    debugger;
     return{
         signIn:(creds)=>dispatch(signIn(creds))
     }

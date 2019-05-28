@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 import {createStore,applyMiddleware,compose} from 'redux';
 //when i import {rootReducer}, error happens saying attempted import error;
 import rootReducer from './store/reducers/rootReducer';
@@ -18,15 +17,14 @@ const store = createStore(rootReducer,
     compose(
         applyMiddleware(thunk.withExtraArgument({getFirebase,getFirestore})),
         reduxFirestore(fbConfig),
-        reactReduxFirebase(fbConfig)
+        reactReduxFirebase(fbConfig,{attachAuthIsReady:true})
         )
     );
+//not render to the DOM until auth is ready
+store.firebaseAuthIsReady.then(()=>{
+    ReactDOM.render(
+        <Provider store={store}><App /></Provider>, 
+        document.getElementById('root')
+    );
+})
 
-
-ReactDOM.render(
-    <Provider store={store}><App /></Provider>, 
-    document.getElementById('root')
-);
-
-
-serviceWorker.unregister();
