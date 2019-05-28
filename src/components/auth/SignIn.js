@@ -18,13 +18,11 @@ class SignIn extends Component {
     handleSubmit = (e) => {
         debugger;
         e.preventDefault();
-        // console.log(this.state)
         this.props.signIn(this.state)
     }
   
 
     render(){
-        console.log('props for signIn:',this.props);
         const { authError } = this.props;
         return(
              <div className="container">
