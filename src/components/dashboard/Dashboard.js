@@ -11,7 +11,7 @@ class Dashboard extends Component{
     render(){
         const {projects,auth} = this.props;
         //router guard
-        if(!auth.uid) return <Redirect to='./signIn' />
+        if(!auth.uid) return <Redirect to='./signin' />
         return(
             <div className="dashboard container">
                 <div className="row">
