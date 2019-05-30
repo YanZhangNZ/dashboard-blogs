@@ -19,13 +19,12 @@ class CreateProject extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         // console.log(this.state)
-        debugger;
         this.props.createProject(this.state)
-    }
-  
+    }  
 
     render(){
         const { auth } = this.props;
+        console.log('create project props:',this.props);
         if(!auth.uid) return <Redirect to = '/signin' />
         return(
              <div className="container">
@@ -53,7 +52,6 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    debugger;
     return {
         createProject: (project)=>dispatch(createProject(project))
     }

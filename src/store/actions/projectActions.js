@@ -9,14 +9,15 @@ export const createProject = (project) => {
     debugger;
     return (dispatch,getState,{getFirebase,getFirestore}) => {
         //with thunk, we return a function, so we make async call to database
-        debugger;
         const firestore = getFirestore();
-        debugger;
+        const profile = getState().firebase.profile;
+        const authorId = getState().firebase.auth.uid;
+
         firestore.collection('projects').add({
             ...project,
-            authorFirstName:'Yan',
-            authorLastName:'Zhang',
-            authorId:12345,
+            authorFirstName:profile.firstName,
+            authorLastName:profile.lastName,
+            authorId:authorId,
             createdAt:new Date()
         }).then(() => {
             debugger;
