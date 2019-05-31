@@ -9,6 +9,7 @@ class CreateProject extends Component {
         this.state = {
             title:'',
             content:'',
+            errorMessage:''
         }
     }
     handleChange = (e) => {
@@ -17,9 +18,19 @@ class CreateProject extends Component {
         })
     }
     handleSubmit = (e) => {
+        
         e.preventDefault();
-        // console.log(this.state)
-        this.props.createProject(this.state)
+        if(this.state.title !== '' && this.state.content !== "" ){
+            this.props.createProject(this.state);
+            this.props.history.push('/');        
+            return <Redirect to='/' />
+        }else {
+            this.setState({
+                errorMessage:'please create your project.'
+                
+            })
+        }
+        
     }  
 
     render(){
@@ -40,6 +51,7 @@ class CreateProject extends Component {
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Create</button>
+                        <p>{this.state.errorMessage ? this.state.errorMessage : null}</p>
                     </div>
                 </form>
              </div>
