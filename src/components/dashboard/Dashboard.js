@@ -36,7 +36,8 @@ const mapStateToProps = (state) => {
     return{
         // projects: state.project.projects
         projects:state.firestore.ordered.projects,
-        auth:state.firebase.auth
+        auth:state.firebase.auth,
+        notifications: state.firestore.ordered.notifications
     }
 }
 export default compose(
