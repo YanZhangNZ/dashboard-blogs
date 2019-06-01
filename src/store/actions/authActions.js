@@ -40,7 +40,6 @@ export const signUp = (newUser) => {
             newUser.email,
             newUser.password
         ).then((res)=>{
-            console.log('sign up resp:',res);
             //if 'user' not exist, firebase will create it
             //create a new doc with id
             return firestore.collection('users').doc(res.user.uid).set({

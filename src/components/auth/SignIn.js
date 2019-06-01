@@ -17,7 +17,6 @@ class SignIn extends Component {
         })        
     }
     handleSubmit = (e) => {
-        debugger;
         e.preventDefault();
         this.props.signIn(this.state)
     }
@@ -53,7 +52,6 @@ class SignIn extends Component {
 
 //get state from state
 const mapStateToProps = (state)=>{
-    debugger;
     return{
         //in reducer we have auth, and inside that we have authError
         authError:state.auth.authError,
@@ -62,7 +60,6 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps = (dispatch)=>{
-    debugger;
     return{
         signIn:(creds)=>dispatch(signIn(creds))
     }

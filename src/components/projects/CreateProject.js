@@ -35,12 +35,11 @@ class CreateProject extends Component {
 
     render(){
         const { auth } = this.props;
-        console.log('create project props:',this.props);
         if(!auth.uid) return <Redirect to = '/signin' />
         return(
              <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Create New Project</h5>
+                    <h5 className="grey-text text-darken-3">Create New Blog</h5>
                     <div className="input-field">
                         <label htmlFor="title">Title</label>
                         <input type="text" id="title" onChange={this.handleChange}></input>
