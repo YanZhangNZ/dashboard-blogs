@@ -12,7 +12,7 @@
 /build
 
 #firebase API
-/src/config
+/src/config/fbConfig.js
 
 # misc
 .DS_Store
