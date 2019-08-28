@@ -8,7 +8,7 @@ const setUp = (props = {}) => {
     return component;
 }
 
-describe('Navbar Component',() => {
+describe('Notification Component',() => {
 
     let component;
     beforeEach(() => {
