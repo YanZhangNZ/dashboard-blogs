@@ -1,8 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { findByTestAttr } from '../../Utils/index'
+import { findByTestAttr, checkProps } from '../../Utils/index'
 import Notifications from './Notifications'
-import checkPropTypes from 'check-prop-types'
 
 
 const setUp = (props = {}) => {
@@ -16,14 +15,13 @@ describe('Notification Component',() => {
         
         it ('Should not throw a warning',() => {
 
-            const expectedProps = [{
+            const expectedProps = {
                 content:'test content',
                 user:'test user',
                 time:'31 May 2019 17:38PM'
-            }];
-            const propsErr = checkPropTypes(Notifications.propTypes,expectedProps);
-
-
+            };
+            const propsErr = checkProps(Notifications,expectedProps);
+            expect(propsErr).toBeUndefined();
         })
     });
 
