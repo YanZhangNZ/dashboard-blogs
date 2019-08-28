@@ -1,5 +1,6 @@
 import React from 'react';
-import moment from 'moment';
+// import moment from 'moment';
+import PropTypes from 'prop-types'
 
 const Notifications = (props) => {
     const { notifications } = props;
@@ -27,5 +28,11 @@ const Notifications = (props) => {
         </div>
     )
 }
-
+Notifications.propTypes = {
+    notifications:PropTypes.arrayOf(PropTypes.shape({
+        content:PropTypes.string,
+        user:PropTypes.string,
+        time:PropTypes.time,
+    }))
+}
 export default Notifications;
