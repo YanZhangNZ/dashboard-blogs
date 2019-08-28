@@ -10,18 +10,40 @@ const setUp = (props = {}) => {
 
 describe('Notification Component',() => {
 
-    let component;
-    beforeEach(() => {
-        component = setUp();
+    describe('Have props', () => {
+
+        let wrapper;
+        beforeEach(()=>{
+            const props = {
+                notifications:[{                    
+                    content: 'test content',
+                    user: 'test user',
+                    time: '31 May 2019 17:38PM'
+                }],
+            };
+        
+            wrapper = setUp(props);
+        });
+
+        it('Should render notifications', () => {
+            const component = findByTestAttr(wrapper,'notifications');
+            expect(component.length).toBe(1);
+        });
+
+        
     });
 
-    it('It should be render without errors',() => {
-        const wrapper = findByTestAttr(component,'section')
-        expect(wrapper.length).toBe(1);
-    });
+    describe('Have No props', () => {
+        let wrapper;
+        beforeEach(()=>{
+            wrapper = setUp();
+        });
 
-    it('It should be render without errors',() => {
-        const card = findByTestAttr(component,'card')
-        expect(card.length).toBe(1);
+        it('Should not render', () => {
+            // const component = findByTestAttr(wrapper,'notifications');
+            const component = findByTestAttr(wrapper,'notifications')
+            expect(component.length).toBe(0)
+        })
+
     })
 })
