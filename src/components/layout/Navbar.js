@@ -1,6 +1,6 @@
 //no state, so can be a function component not class component
 
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
@@ -12,7 +12,7 @@ const Navbar =(props) => {
         const { auth, profile } = props;
         const links = auth.uid ? <SignedInLinks profile={profile}/>:<SignedOutLinks />
     return(
-        <div>
+        <div className="navComponent">
         <nav className="nav-wrapper grey darken-2">
             <div className="container">
                 <Link to="/" className="brand-logo" style={{left:'60px',fontSize:'22px'}}>Blogging</Link>
